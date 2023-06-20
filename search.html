@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Camera Trap</title>
+	<link rel=stylesheet type="text/css" href="tw/theme.css">
+	<link rel=stylesheet type="text/css" href="tw/select2.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="js/gsap.min.js" ></script>
+	<script src="js/ScrollTrigger.min.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+</head>
+
+
+<body>
+	<div class="pop-box photo-pop" style="display: none;">
+	<div class="center-box photo-pic">
+		<div class="photo-debox only-pic">
+			<div class="xx">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+					<g id="Group_789" data-name="Group 789" transform="translate(-1679 -599)">
+						<g id="Ellipse_4" data-name="Ellipse 4" transform="translate(1679 599)" fill="none" stroke="#257455" stroke-width="2">
+							<circle cx="20" cy="20" r="20" stroke="none"/>
+							<circle cx="20" cy="20" r="19" fill="none"/>
+						</g>
+						<g id="Group_712" data-name="Group 712" transform="translate(-133.5 164.5)">
+							<line id="Line_1" data-name="Line 1" x1="16" y2="16" transform="translate(1824.5 446.5)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+							<line id="Line_2" data-name="Line 2" x2="16" y2="16" transform="translate(1824.5 446.5)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+						</g>
+					</g>
+				</svg>
+			</div>
+			<div class="photobox-img">
+				<div class="img-all">
+					<div class="item">
+						<img src="image/6368d8dc69c98a10435713fe-m.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="header">
+
+	</div>
+
+	<div class="innbox gray-bg">
+		<div class="main-box">
+			<div class="main-title">
+				<h2>資料篩選與計算</h2>
+			</div>
+			<div class="wbg-box marb_40">
+				<h3 class="light-green marb_20">篩選條件</h3>
+				<ul class="inp4box">
+					<li class="inpboxitem">
+						<p>物種</p>
+						<div class="input-item">
+							<select name="" id="rd-select2-1" multiple="multiple">
+								<option value="1">山羌</option>
+								<option value="2">黑熊</option>
+							</select>
+						</div>
+					</li>
+					<li class="inpboxitem">
+						<p>計畫關鍵字</p>
+						<div class="input-item">
+							<input type="text" placeholder="請輸入關鍵字">
+						</div>
+					</li>
+					<li class="inpboxitem">
+						<p>資料啟始日期</p>
+						<div class="input-item date-select">
+							<input type="text" placeholder="2023-01-01">
+							<button class="date-cal">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25.211" viewBox="0 0 24 25.211">
+									<g id="Group_3" data-name="Group 3" transform="translate(0 0)">
+										<g id="Group_686" data-name="Group 686">
+											<path id="Path_10209" data-name="Path 10209" d="M4.771,1.8C4.995.617,5.65-.011,6.628,0c.951.011,1.6.652,1.8,1.788h7.163A1.862,1.862,0,0,1,16.38.322a1.765,1.765,0,0,1,1.17-.316,1.843,1.843,0,0,1,1.666,1.8c.526,0,1.057-.011,1.587,0a4.414,4.414,0,0,1,.918.095,2.955,2.955,0,0,1,2.272,2.8c0,.084.005.169.005.253q0,8.553,0,17.106a2.929,2.929,0,0,1-1.8,2.887A2.987,2.987,0,0,1,21,25.2q-9,.023-18,.007A2.967,2.967,0,0,1,.011,22.277C-.009,21.508,0,20.739,0,19.97q0-7.512,0-15.024A2.957,2.957,0,0,1,2.046,1.97a3.937,3.937,0,0,1,1.047-.162c.56-.026,1.121-.007,1.678-.007M1.2,8.414v.324q0,6.639,0,13.277a1.825,1.825,0,0,0,1.987,2H20.822A1.823,1.823,0,0,0,22.8,22.038q0-6.653,0-13.305V8.414Zm0-1.232H22.8c0-.853.023-1.688-.007-2.52a1.687,1.687,0,0,0-1.412-1.6,20.671,20.671,0,0,0-2.158-.016c-.205,1.115-.822,1.731-1.769,1.752-.989.022-1.59-.544-1.884-1.776H8.42A1.832,1.832,0,0,1,6.636,4.794C5.644,4.81,4.984,4.182,4.78,3.03c-.692,0-1.387-.049-2.073.013a1.7,1.7,0,0,0-1.5,1.618c-.03.833-.007,1.667-.007,2.522M7.2,2.4c0-.187.008-.375,0-.562a.614.614,0,0,0-.61-.638A.606.606,0,0,0,6,1.825c-.013.384-.014.768,0,1.152a.6.6,0,0,0,.594.622A.607.607,0,0,0,7.2,2.962c.009-.187,0-.375,0-.562M18,2.421h0c0-.215.015-.432,0-.646a.6.6,0,0,0-.583-.575.594.594,0,0,0-.608.576c-.021.411-.02.825,0,1.236a.59.59,0,0,0,.6.586.6.6,0,0,0,.6-.588c.015-.2,0-.393,0-.59" transform="translate(0 0)" fill="#257455"/>
+											<path id="Path_10210" data-name="Path 10210" d="M47.962,145.811c0-.319-.01-.638,0-.956a1.174,1.174,0,0,1,1.159-1.144q.928-.018,1.856,0a1.172,1.172,0,0,1,1.165,1.166c.014.6.011,1.2,0,1.8a1.18,1.18,0,0,1-1.191,1.231c-.6.019-1.2.018-1.8,0a1.184,1.184,0,0,1-1.2-1.226c-.006-.291,0-.581,0-.872h0m2.975-.885H49.172v1.766h1.765Z" transform="translate(-44.354 -132.903)" fill="#257455"/>
+											<path id="Path_10211" data-name="Path 10211" d="M131.813,145.762c0-.319-.011-.638,0-.956a1.166,1.166,0,0,1,1.121-1.122q.969-.028,1.94,0a1.159,1.159,0,0,1,1.116,1.126c.018.618.014,1.238.005,1.856a1.176,1.176,0,0,1-1.181,1.212c-.609.021-1.219.021-1.828,0a1.179,1.179,0,0,1-1.178-1.215c-.006-.3,0-.6,0-.9h0m2.978-.87h-1.772v1.762h1.772Z" transform="translate(-121.903 -132.873)" fill="#257455"/>
+											<path id="Path_10212" data-name="Path 10212" d="M219.816,145.886c0,.281.005.563,0,.844a1.18,1.18,0,0,1-1.176,1.217c-.608.022-1.219.021-1.827,0a1.177,1.177,0,0,1-1.183-1.209q-.014-.886,0-1.772a1.182,1.182,0,0,1,1.231-1.218q.858-.007,1.715,0a1.188,1.188,0,0,1,1.241,1.237c.005.3,0,.6,0,.9m-1.2-.919h-1.775v1.755h1.775Z" transform="translate(-199.419 -132.943)" fill="#257455"/>
+											<path id="Path_10213" data-name="Path 10213" d="M52.1,233.578c0,.319.011.638,0,.956a1.171,1.171,0,0,1-1.143,1.13q-.942.023-1.884,0a1.168,1.168,0,0,1-1.152-1.151c-.015-.609-.012-1.219,0-1.828a1.175,1.175,0,0,1,1.175-1.217c.609-.021,1.219-.02,1.828,0a1.179,1.179,0,0,1,1.184,1.209c.007.3,0,.6,0,.9h0m-2.968.877H50.89V232.68H49.136Z" transform="translate(-44.312 -214.062)" fill="#257455"/>
+											<path id="Path_10214" data-name="Path 10214" d="M135.957,233.58c0,.309.009.619,0,.928a1.176,1.176,0,0,1-1.147,1.157q-.942.023-1.884,0a1.168,1.168,0,0,1-1.15-1.152c-.015-.609-.012-1.219,0-1.828a1.175,1.175,0,0,1,1.177-1.215c.609-.02,1.219-.02,1.828,0a1.179,1.179,0,0,1,1.182,1.211c.007.3,0,.6,0,.9h0m-2.984.873h1.775v-1.759h-1.775Z" transform="translate(-121.863 -214.062)" fill="#257455"/>
+											<path id="Path_10215" data-name="Path 10215" d="M215.661,233.554c0-.291-.005-.581,0-.872a1.179,1.179,0,0,1,1.18-1.213c.609-.02,1.219-.02,1.828,0a1.175,1.175,0,0,1,1.179,1.213q.014.886,0,1.772a1.184,1.184,0,0,1-1.235,1.214q-.858.007-1.715,0a1.186,1.186,0,0,1-1.236-1.214c-.007-.3,0-.6,0-.9m2.98-.861h-1.77v1.766h1.77Z" transform="translate(-199.453 -214.062)" fill="#257455"/>
+										</g>
+									</g>
+								</svg>
+							</button>
+						</div>
+					</li>
+					<li class="inpboxitem">
+						<p>資料結束日期</p>
+						<div class="input-item date-select">
+							<input type="text" placeholder="2023-01-01">
+							<button class="date-cal">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25.211" viewBox="0 0 24 25.211">
+									<g id="Group_3" data-name="Group 3" transform="translate(0 0)">
+										<g id="Group_686" data-name="Group 686">
+											<path id="Path_10209" data-name="Path 10209" d="M4.771,1.8C4.995.617,5.65-.011,6.628,0c.951.011,1.6.652,1.8,1.788h7.163A1.862,1.862,0,0,1,16.38.322a1.765,1.765,0,0,1,1.17-.316,1.843,1.843,0,0,1,1.666,1.8c.526,0,1.057-.011,1.587,0a4.414,4.414,0,0,1,.918.095,2.955,2.955,0,0,1,2.272,2.8c0,.084.005.169.005.253q0,8.553,0,17.106a2.929,2.929,0,0,1-1.8,2.887A2.987,2.987,0,0,1,21,25.2q-9,.023-18,.007A2.967,2.967,0,0,1,.011,22.277C-.009,21.508,0,20.739,0,19.97q0-7.512,0-15.024A2.957,2.957,0,0,1,2.046,1.97a3.937,3.937,0,0,1,1.047-.162c.56-.026,1.121-.007,1.678-.007M1.2,8.414v.324q0,6.639,0,13.277a1.825,1.825,0,0,0,1.987,2H20.822A1.823,1.823,0,0,0,22.8,22.038q0-6.653,0-13.305V8.414Zm0-1.232H22.8c0-.853.023-1.688-.007-2.52a1.687,1.687,0,0,0-1.412-1.6,20.671,20.671,0,0,0-2.158-.016c-.205,1.115-.822,1.731-1.769,1.752-.989.022-1.59-.544-1.884-1.776H8.42A1.832,1.832,0,0,1,6.636,4.794C5.644,4.81,4.984,4.182,4.78,3.03c-.692,0-1.387-.049-2.073.013a1.7,1.7,0,0,0-1.5,1.618c-.03.833-.007,1.667-.007,2.522M7.2,2.4c0-.187.008-.375,0-.562a.614.614,0,0,0-.61-.638A.606.606,0,0,0,6,1.825c-.013.384-.014.768,0,1.152a.6.6,0,0,0,.594.622A.607.607,0,0,0,7.2,2.962c.009-.187,0-.375,0-.562M18,2.421h0c0-.215.015-.432,0-.646a.6.6,0,0,0-.583-.575.594.594,0,0,0-.608.576c-.021.411-.02.825,0,1.236a.59.59,0,0,0,.6.586.6.6,0,0,0,.6-.588c.015-.2,0-.393,0-.59" transform="translate(0 0)" fill="#257455"/>
+											<path id="Path_10210" data-name="Path 10210" d="M47.962,145.811c0-.319-.01-.638,0-.956a1.174,1.174,0,0,1,1.159-1.144q.928-.018,1.856,0a1.172,1.172,0,0,1,1.165,1.166c.014.6.011,1.2,0,1.8a1.18,1.18,0,0,1-1.191,1.231c-.6.019-1.2.018-1.8,0a1.184,1.184,0,0,1-1.2-1.226c-.006-.291,0-.581,0-.872h0m2.975-.885H49.172v1.766h1.765Z" transform="translate(-44.354 -132.903)" fill="#257455"/>
+											<path id="Path_10211" data-name="Path 10211" d="M131.813,145.762c0-.319-.011-.638,0-.956a1.166,1.166,0,0,1,1.121-1.122q.969-.028,1.94,0a1.159,1.159,0,0,1,1.116,1.126c.018.618.014,1.238.005,1.856a1.176,1.176,0,0,1-1.181,1.212c-.609.021-1.219.021-1.828,0a1.179,1.179,0,0,1-1.178-1.215c-.006-.3,0-.6,0-.9h0m2.978-.87h-1.772v1.762h1.772Z" transform="translate(-121.903 -132.873)" fill="#257455"/>
+											<path id="Path_10212" data-name="Path 10212" d="M219.816,145.886c0,.281.005.563,0,.844a1.18,1.18,0,0,1-1.176,1.217c-.608.022-1.219.021-1.827,0a1.177,1.177,0,0,1-1.183-1.209q-.014-.886,0-1.772a1.182,1.182,0,0,1,1.231-1.218q.858-.007,1.715,0a1.188,1.188,0,0,1,1.241,1.237c.005.3,0,.6,0,.9m-1.2-.919h-1.775v1.755h1.775Z" transform="translate(-199.419 -132.943)" fill="#257455"/>
+											<path id="Path_10213" data-name="Path 10213" d="M52.1,233.578c0,.319.011.638,0,.956a1.171,1.171,0,0,1-1.143,1.13q-.942.023-1.884,0a1.168,1.168,0,0,1-1.152-1.151c-.015-.609-.012-1.219,0-1.828a1.175,1.175,0,0,1,1.175-1.217c.609-.021,1.219-.02,1.828,0a1.179,1.179,0,0,1,1.184,1.209c.007.3,0,.6,0,.9h0m-2.968.877H50.89V232.68H49.136Z" transform="translate(-44.312 -214.062)" fill="#257455"/>
+											<path id="Path_10214" data-name="Path 10214" d="M135.957,233.58c0,.309.009.619,0,.928a1.176,1.176,0,0,1-1.147,1.157q-.942.023-1.884,0a1.168,1.168,0,0,1-1.15-1.152c-.015-.609-.012-1.219,0-1.828a1.175,1.175,0,0,1,1.177-1.215c.609-.02,1.219-.02,1.828,0a1.179,1.179,0,0,1,1.182,1.211c.007.3,0,.6,0,.9h0m-2.984.873h1.775v-1.759h-1.775Z" transform="translate(-121.863 -214.062)" fill="#257455"/>
+											<path id="Path_10215" data-name="Path 10215" d="M215.661,233.554c0-.291-.005-.581,0-.872a1.179,1.179,0,0,1,1.18-1.213c.609-.02,1.219-.02,1.828,0a1.175,1.175,0,0,1,1.179,1.213q.014.886,0,1.772a1.184,1.184,0,0,1-1.235,1.214q-.858.007-1.715,0a1.186,1.186,0,0,1-1.236-1.214c-.007-.3,0-.6,0-.9m2.98-.861h-1.77v1.766h1.77Z" transform="translate(-199.453 -214.062)" fill="#257455"/>
+										</g>
+									</g>
+								</svg>
+							</button>
+						</div>
+					</li>
+				</ul>
+
+				<!--按按鈕加一組li 第二組後才有刪除鈕-->
+				<ul class="plan-screening">
+					<li>
+						<div class="titlebox">
+							<h3>計畫篩選</h3>
+							<div class="cir-num">1</div>
+						</div>
+						<div class="input-item ">
+							<select name="" id="">
+								<option value="">計畫名稱</option>
+							</select>
+						</div>
+						<div class="inp2box">
+							<div class="input-item ">
+								<select name="" id="rd-select2-2" multiple="multiple">
+<!--									<option value="">樣區</option>-->
+									<option value="1">J01</option>
+									<option value="2">J02</option>
+									<option value="3">J03</option>
+								</select>
+							</div>
+							<div class="input-item">
+								<select name="" id="rd-select2-3" multiple="multiple">
+<!--									<option value="">相機位置</option>-->
+									<option value="1">J01</option>
+									<option value="2">J02</option>
+									<option value="3">J03</option>
+								</select>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xx">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+								<g id="Group_789" data-name="Group 789" transform="translate(-1679 -599)">
+									<g id="Ellipse_4" data-name="Ellipse 4" transform="translate(1679 599)" fill="none" stroke="#257455" stroke-width="2">
+										<circle cx="20" cy="20" r="20" stroke="none"/>
+										<circle cx="20" cy="20" r="19" fill="none"/>
+									</g>
+									<g id="Group_712" data-name="Group 712" transform="translate(-133.5 164.5)">
+										<line id="Line_1" data-name="Line 1" x1="16" y2="16" transform="translate(1824.5 446.5)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+										<line id="Line_2" data-name="Line 2" x2="16" y2="16" transform="translate(1824.5 446.5)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+									</g>
+								</g>
+							</svg>
+						</div>
+						<div class="titlebox">
+							<h3>計畫篩選</h3>
+							<div class="cir-num">2</div>
+						</div>
+						<div class="input-item ">
+							<select name="" id="">
+								<option value="">計畫名稱</option>
+							</select>
+						</div>
+						<div class="inp2box">
+							<div class="input-item ">
+								<select name="" id="rd-select2-4" multiple="multiple">
+<!--									<option value="">樣區</option>-->
+									<option value="1">J01</option>
+									<option value="2">J02</option>
+									<option value="3">J03</option>
+								</select>
+							</div>
+							<div class="input-item">
+								<select name="" id="rd-select2-5" multiple="multiple">
+<!--									<option value="">相機位置</option>-->
+									<option value="1">J01</option>
+									<option value="2">J02</option>
+									<option value="3">J03</option>
+								</select>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="btn-center">
+					<button class="add-newbtn btn-greeno">
+						新增計畫篩選
+						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+							<g id="Group_802" data-name="Group 802" transform="translate(-1006 -836)">
+								<g id="Ellipse_3" data-name="Ellipse 3" transform="translate(1006 836)" fill="none" stroke="#257455" stroke-width="2">
+									<circle cx="11" cy="11" r="11" stroke="none"/>
+									<circle cx="11" cy="11" r="10" fill="none"/>
+								</g>
+								<g id="Group_709" data-name="Group 709" transform="translate(74.5 -16.5)">
+									<line id="Line_3" data-name="Line 3" x2="8" transform="translate(938.5 863.5)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+									<line id="Line_4" data-name="Line 4" y2="8" transform="translate(942.5 859.5)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+								</g>
+							</g>
+						</svg>
+
+					</button>
+				</div>
+				<div class="altitude-box">
+					<div class="left-box">
+						<div class="input-item ">
+							<p>海拔</p>
+							<select name="" id="">
+								<option value="">比較</option>
+							</select>
+						</div>
+						<div class="input-item ">
+							<input type="text">
+							<span>m</span>
+						</div>
+					</div>
+					<div class="right-box">
+						範圍的話用”-“，標示，例如: 600-1200
+					</div>
+				</div>
+				<div class="inp2box">
+					<div class="input-item ">
+						<p>縣市</p>
+						<select name="" id="rd-select2-6" multiple="multiple">
+							<option value="1">台南市</option>
+							<option value="2">台北市</option>
+						</select>
+					</div>
+					<div class="input-item">
+						<p>保護留區</p>
+						<select name="" id="rd-select2-7" multiple="multiple">
+							<option value="1">玉山</option>
+							<option value="2">阿里山</option>
+						</select>
+					</div>
+				</div>
+				<div class="btn-center btn-search">
+					<button class="btn-green">
+						搜尋
+						<svg xmlns="http://www.w3.org/2000/svg" width="15.061" height="15.061" viewBox="0 0 15.061 15.061">
+							<g id="Group_718" data-name="Group 718" transform="translate(-966.939 -1128)">
+								<g id="Group_719" data-name="Group 719">
+									<g id="Ellipse_5" data-name="Ellipse 5" transform="translate(970 1128)" fill="none" stroke="#fff" stroke-width="1.5">
+										<circle cx="6" cy="6" r="6" stroke="none"/>
+										<circle cx="6" cy="6" r="5.25" fill="none"/>
+									</g>
+									<line id="Line_5" data-name="Line 5" x1="4" y2="4" transform="translate(968 1138)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+								</g>
+							</g>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<div class="wbg-box marb_40">
+				<div class="title-flex">
+					<h3 class="light-green marb_20">搜尋結果</h3>
+					<button class="btn-greeno">下載搜尋結果</button>
+				</div>
+				<div class="table-ov">
+					<table class="search-result-table" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td class="td1-num">#</td>
+							<td class="td2-id">ID</td>
+							<td class="td3-file">檔案名稱</td>
+							<td class="td4-species">物種</td>
+							<td class="td5-time">拍攝時間</td>
+							<td class="td6-pjname">計畫名稱</td>
+							<td class="td7-areaname">樣區名稱</td>
+							<td class="td8-cameraaname"> 相機位置名稱</td>
+							<td class="td9-hnum">海拔</td>
+							<td class="td10-city">縣市</td>
+							<td class="td11-area">保護留區</td>
+							<td class="td12-photo">照片</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>12672625</td>
+							<td>20180805-0612
+								-50-IMG_0099.MP4</td>
+							<td>山羌</td>
+							<td>2019-03-04<br>
+								12:03:12</td>
+							<td>中部地區友善道路
+								改善計畫</td>
+							<td>卓蘭</td>
+							<td>RZL12</td>
+							<td>100</td>
+							<td>臺中市</td>
+							<td>台南縣曾文溪口北岸
+								黑面琵鷺動物保護區
+							</td>
+							<td>
+								<img src="image/pics.png" alt="">
+							</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>12672625</td>
+							<td>20180805-0612
+								-50-IMG_0099.MP4</td>
+							<td>山羌山羌山羌</td>
+							<td>2019-03-04<br>
+								12:03:12</td>
+							<td>中部地區友善道路
+								改善計畫</td>
+							<td>卓蘭</td>
+							<td>RZL12</td>
+							<td>100</td>
+							<td>臺中市</td>
+							<td>台南縣曾文溪口北岸
+								黑面琵鷺動物保護區
+							</td>
+							<td>
+								<img src="image/pics.png" alt="">
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="page-flex-center">
+					<p class="onepage">一頁幾筆</p>
+					<div class="input-item">
+						<select name="" id="">
+							<option value="">1</option>
+						</select>
+					</div>
+					<p>1–20 of 67872</p>
+					<button class="arrl">
+						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+							<g id="Group_800" data-name="Group 800" transform="translate(-1050 -1644)">
+								<g id="Ellipse_6" data-name="Ellipse 6" transform="translate(1050 1644)" fill="#fff" stroke="#257455" stroke-width="1">
+									<circle cx="20" cy="20" r="20" stroke="none"/>
+									<circle cx="20" cy="20" r="19.5" fill="none"/>
+								</g>
+								<g id="Group_721" data-name="Group 721" transform="translate(1067 1657)">
+									<line id="Line_6" data-name="Line 6" x1="6.549" y2="6.549" transform="translate(0)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+									<line id="Line_7" data-name="Line 7" x1="6.549" y1="6.549" transform="translate(0 6.549)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+								</g>
+							</g>
+						</svg>
+					</button>
+					<button class="arrr">
+						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+							<g id="Group_801" data-name="Group 801" transform="translate(-1100 -1644)">
+								<g id="Ellipse_7" data-name="Ellipse 7" transform="translate(1100 1644)" fill="#fff" stroke="#257455" stroke-width="1">
+									<circle cx="20" cy="20" r="20" stroke="none"/>
+									<circle cx="20" cy="20" r="19.5" fill="none"/>
+								</g>
+								<g id="Group_722" data-name="Group 722" transform="translate(-37.775 -28.049)">
+									<line id="Line_6" data-name="Line 6" x2="6.549" y2="6.549" transform="translate(1154.5 1685.5)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+									<line id="Line_7" data-name="Line 7" y1="6.549" x2="6.549" transform="translate(1154.5 1692.049)" fill="none" stroke="#257455" stroke-linecap="round" stroke-width="2"/>
+								</g>
+							</g>
+						</svg>
+
+					</button>
+				</div>
+
+				<div class="anc-area">
+					<h3 class="light-green marb_20">分析與計算</h3>
+					<div class="formbox">
+						<div class="input-item">
+							<p>計算項目</p>
+							<select name="" id="">
+								<option value="">123</option>
+							</select>
+						</div>
+						<div class="input-item">
+							<p>回合</p>
+							<select name="" id="">
+								<option value="">123</option>
+							</select>
+						</div>
+						<div class="input-item">
+							<p>有效照片間隔</p>
+							<select name="" id="">
+								<option value="">123</option>
+							</select>
+						</div>
+						<div class="input-item">
+							<p>目擊事件間隔</p>
+							<select name="" id="">
+								<option value="">123</option>
+							</select>
+						</div>
+						<div class="input-item">
+							<p>檔案格式</p>
+							<select name="" id="">
+								<option value="">123</option>
+							</select>
+						</div>
+					</div>
+					<div class="btn-center">
+						<button class="btn-greeno">計算項目說明</button>
+						<button class="btn-green">下載計算</button>
+					</div>
+					<span class="version">v0.1.7 (230504)</span>
+				</div>
+			</div>
+			<div class="chart-box2">
+				<ul>
+					<li>
+						<div class="chart-title">
+							<h2>花蓮林管處已辨識物種<span>27</span>種</h2>
+							<p class="date">最後更新時間：2023-05-07</p>
+						</div>
+						<div class="chart-area">
+							<div class="left-pie">
+								<img src="image/chartw.png" alt="">
+							</div>
+							<div class="right-data">
+								<img src="image/chartw1.png" alt="">
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="chart-title">
+							<h2>花蓮林管處已辨識物種<span>27</span>種</h2>
+							<p class="date">最後更新時間：2023-05-07</p>
+						</div>
+						<div class="chart-area">
+							<div class="left-pie">
+								<img src="image/chartw.png" alt="">
+							</div>
+							<div class="right-data">
+								<div class="dottarea">
+									<div class="species-percentage">
+								<span class="species-percentage-list" data-species="no">
+									<svg class="svg-inline--fa fa-circle chart-color-0 w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"></path></svg><!-- <i class="fa fa-circle chart-color-0 w-12"></i> Font Awesome fontawesome.com -->
+									no 28.1 %
+								</span>
+
+										<span class="species-percentage-list" data-species="山羌">
+									<svg class="svg-inline--fa fa-circle chart-color-1 w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"></path></svg><!-- <i class="fa fa-circle chart-color-1 w-12"></i> Font Awesome fontawesome.com -->
+									山羌 17.49 %
+								</span>
+										<span class="species-percentage-list" data-species="山羌">
+									<svg class="svg-inline--fa fa-circle chart-color-1 w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"></path></svg><!-- <i class="fa fa-circle chart-color-1 w-12"></i> Font Awesome fontawesome.com -->
+									山羌 17.49 %
+								</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="footer">
+
+	</div>
+
+</body>
+<script>
+
+	$(function(){
+		$('.search-result-table td').on('click',function (event) {
+			$('.photo-pop').fadeIn();
+			$('body').css("overflow", "hidden");
+		});
+		$('.photo-pop .xx').on('click',function (event) {
+			$('.photo-pop').fadeOut();
+			$('body').css("overflow", "initial");
+		});
+
+		$(".header").load("header.html");
+		$(".footer").load("footer.html");
+
+		$('#rd-select2-1').select2({placeholder: "請選擇"});
+		$('#rd-select2-2').select2({placeholder: "樣區"});
+		$('#rd-select2-3').select2({placeholder: "相機位置"});
+		$('#rd-select2-4').select2({placeholder: "樣區"});
+		$('#rd-select2-5').select2({placeholder: "相機位置"});
+		$('#rd-select2-6').select2({placeholder: "請選擇"});
+		$('#rd-select2-7').select2({placeholder: "請選擇"});
+	});
+
+</script>
+</html>
